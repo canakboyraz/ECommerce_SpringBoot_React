@@ -15,7 +15,7 @@ function Login() {
             const stData = JSON.stringify(res.data)
             const cipherText = encrypt(stData)
             sessionStorage.setItem('user', cipherText)
-            navigate('/')
+            navigate('/dashboard')
         }).catch(err => {
             console.log(err.message)
             alert("Username or Password Fail!")
@@ -26,7 +26,7 @@ function Login() {
     <div className='row'>
         <div className='col-sm-4'></div>
         <div className='col-sm-4'>
-            <h2 style={{marginTop:200}} >Login</h2>
+            <h2 style={{marginTop:200}} >Admin Login</h2>
             <form onSubmit={sendForm}>
                 <div className='mb-3'>
                     <input required onChange={(evt) => setEmail(evt.target.value)} className='form-control' placeholder='E-mail'></input>
@@ -36,7 +36,7 @@ function Login() {
                 </div>
                 <button className='btn btn-success'>Send</button>
             </form>
-            <NavLink style={{marginTop:10}} to={'/register'} className="btn btn-primary">Register</NavLink>
+            
         </div>
         <div className='col-sm-4'></div>
 
